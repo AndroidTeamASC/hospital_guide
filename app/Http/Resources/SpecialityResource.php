@@ -18,8 +18,7 @@ class SpecialityResource extends JsonResource
             'speciality_id'     => $this->id,
             'speciality_ename'  => $this->speciality_ename,
             'speciality_mname'  => $this->speciality_mname,
-            'speciality_image'  => $this->speciality_image,
-             'hospital'  => new HospitalResource(Hospital::find($this->hospital_id))
+            'speciality_image'  => $this->speciality_image
          ];
     }
 }

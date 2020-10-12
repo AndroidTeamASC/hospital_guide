@@ -44,7 +44,6 @@ class SpecialityController extends Controller
             'mname'  => 'required',
             'image' => 'required',
             'ename' => 'required',
-            'hospital'    => 'required', 
         ]);
          if($request->hasfile('image')){
             $image=$request->file('image');
@@ -61,7 +60,6 @@ class SpecialityController extends Controller
         $speciality->speciality_ename    = request('ename');
         $speciality->speciality_image   = $image;
         $speciality->speciality_mname   = request('mname');
-        $speciality->hospital_id    = request('hospital');
         $speciality->save();
 
         return redirect()->route('speciality.index');
@@ -102,7 +100,6 @@ class SpecialityController extends Controller
        $request->validate([
             'edit_mname'  => 'required',
             'edit_ename' => 'required',
-            'edit_hospital'    => 'required', 
         ]);
          if($request->hasfile('image')){
             $image=$request->file('image');

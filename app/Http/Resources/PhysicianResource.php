@@ -19,8 +19,6 @@ class PhysicianResource extends JsonResource
             'id'            => $this->id,
             'name'          => $this->name,
             'degree'        => $this->degree,
-            'date_time'     => $this->date_time,
-            'hospital'  => new HospitalResource(Hospital::find($this->hospital_id)),
             'speciality'  => new SpecialityResource(Speciality::find($this->speciality_id))
         ];
     }

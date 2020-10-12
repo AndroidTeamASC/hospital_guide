@@ -23,7 +23,8 @@ class HospitalResource extends JsonResource
            'website_link'   => $this->website_link,
            'phone_no'       => $this->phone_no,
            'email'          => $this->email,
-           'facebook_link'  => $this->facebook_link
+           'facebook_link'  => $this->facebook_link,
+           'specialities' =>  SpecialityResource::collection($this->specialities)
            
        ];
     }

@@ -17,8 +17,6 @@ class CreatePhysiciansTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('degree');
-            $table->string('date_time');
-            $table->unsignedBigInteger('hospital_id');
             $table->unsignedBigInteger('specility_id');
             $table->timestamps();
         });

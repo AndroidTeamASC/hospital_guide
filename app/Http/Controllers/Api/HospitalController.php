@@ -13,12 +13,17 @@ class HospitalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $hospitals = Hospital::all();
+        if (isset($request->keyword)) {
+            $hospitals = Hospital::where('hospital_name','LIKE',"%$request->keyword%")->orWhere('place','LIKE',"%$request->keyword%")->get();
+        }else {
+            $hospitals = Hospital::all();
+        }
+
         $hospital =  HospitalResource::collection($hospitals);
         return response([
-            'hospitals' => $hospitals
+            'hospitals' => $hospital
         ],200);
     }
 

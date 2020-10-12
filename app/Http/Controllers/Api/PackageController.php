@@ -13,9 +13,13 @@ class PackageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $packages = Package::all();
+        if (isset($request->hospital)) {
+            $packages = Package::where('hospital_id','=',"$request->hospital")->get();
+        }else {
+            $packages = Package::all();
+        }
         $packages = PackageResource::collection($packages);
         return response()->json([
             'packages' => $packages,

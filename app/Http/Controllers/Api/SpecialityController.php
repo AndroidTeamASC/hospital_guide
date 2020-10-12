@@ -13,9 +13,14 @@ class SpecialityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $specialities = Speciality::all();
+        if (isset($request->keyword)) {
+            $specialities = Speciality::where('speciality_ename','LIKE',"%$request->keyword%")->orWhere('speciality_mname','LIKE',"%$request->keyword%")->get();
+        }else {
+            
+            $specialities = Speciality::all();
+        }
         $specialities =  SpecialityResource::collection($specialities);
         return response()->json([
             'specialities' => $specialities

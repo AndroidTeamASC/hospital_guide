@@ -42,15 +42,13 @@ class ScheduleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            's_day'     => 'required',
-            's_time'    => 'required',
+            'date_time'     => 'required',
             'hospital'  => 'required',
             'physician' => 'required'
         ]);
 
         $schedule = new Schedule;
-        $schedule->s_day = request('s_day');
-        $schedule->s_time= request("s_time");
+        $schedule->date_time = request('date_time');
         $schedule->hospital_id  = request('hospital');
         $schedule->physician_id = request('physician');
         $schedule->save();
@@ -90,15 +88,13 @@ class ScheduleController extends Controller
     public function update(Request $request, $id)
     {
           $request->validate([
-            's_day'     => 'required',
-            's_time'    => 'required',
+            'edit_date_time'     => 'required',
             'hospital'  => 'required',
             'physician' => 'required'
         ]);
 
         $schedule = Schedule::find(request('edit_id'));
-        $schedule->s_day = request('s_day');
-        $schedule->s_time= request("s_time");
+        $schedule->date_time = request('edit_date_time');
         $schedule->hospital_id  = request('hospital');
         $schedule->physician_id = request('physician');
         $schedule->save();

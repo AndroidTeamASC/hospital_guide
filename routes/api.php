@@ -29,3 +29,4 @@ Route::Apiresource('/speciality','Api\SpecialityController');
 Route::Apiresource('/physician','Api\PhysicianController');
 
 Route::Apiresource('/schedule','Api\ScheduleController');
+

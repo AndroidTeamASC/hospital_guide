@@ -38,30 +38,6 @@
 
 				<div class="row mt-5">
 					<div class="col-md-3 ">
-						<label>Date Time </label>
-					</div>
-					<div class="col-md-5">
-						 <input type="datetime-local" name="date_time" class="form-control">
-					</div>
-				
-				</div>
-
-				<div class="row mt-5">
-					<div class="col-md-3 ">
-						<label>Hospital </label>
-					</div>
-
-				<div class="col-md-5">
-					<select name="hospital"  class="form-control">
-						<option selected disabled>Select Hospital</option>
-						@foreach($hospitals as $hospital)
-						<option value="{{$hospital->id}}">{{$hospital->hospital_name}}</option>
-						@endforeach
-					</select>
-				</div>
-			</div>
-				<div class="row mt-5">
-					<div class="col-md-3 ">
 						<label>Speciality </label>
 					</div>
 
@@ -114,30 +90,6 @@
 
 				<div class="row mt-5">
 					<div class="col-md-3 ">
-						<label>Date Time </label>
-					</div>
-					<div class="col-md-5">
-						 <input type="datetime-local" name="edit_date_time" class="form-control"	id="edit_date_time">
-					</div>
-				
-				</div>
-
-				<div class="row mt-5">
-					<div class="col-md-3 ">
-						<label>Hospital </label>
-					</div>
-
-					<div class="col-md-5">
-						<select name="edit_hospital"  class="form-control" id="edit_hospital">
-							<option selected disabled>Select Hospital</option>
-							@foreach($hospitals as $hospital)
-							<option value="{{$hospital->id}}">{{$hospital->hospital_name}}</option>
-							@endforeach
-						</select>
-					</div>
-				</div>	
-				<div class="row mt-5">
-					<div class="col-md-3 ">
 						<label>Speciality </label>
 					</div>
 					<div class="col-md-5">
@@ -170,9 +122,7 @@
 				<th>NO.</th>
 				<th>physician Name</th>
 				<th>Degree</th>
-				<th>Date Time</th>
 				<th>Speciality</th>
-				<th>Hospital</th>
 				 
 				<th colspan="2">Action</th>
 			</tr>
@@ -181,10 +131,8 @@
 			<tr>
 				<td>{{$i++}}</td>
 				<td>{{$physician->name}}</td>
-				<td>{{$physician->degree}}</td>			 
-				<td>{{$physician->date_time}}</td>
+				<td>{{$physician->degree}}</td>		
 				<td>{{$physician->speciality->speciality_mname}}</td>
-				<td>{{$physician->hospital->hospital_name}}</td>
 				<td>
 					<a href="#" class="btn btn-secondary  edit_item " 
 					data-id="{{$physician->id}}" 

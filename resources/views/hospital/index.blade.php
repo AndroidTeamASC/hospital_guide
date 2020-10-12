@@ -56,6 +56,25 @@
 				
 				</div>	
 
+
+
+				<div class="row mt-5">
+					<div class="col-md-3 ">
+						<label>Specialities </label>
+					</div>
+					<div class="col-md-5">
+						<div class="row">
+							@foreach($specialities as $speciality)
+						              <div class="col-md-6 col-lg-6 col-sm-6">
+						              	<input type="checkbox" class="form-check-input" id="{{$speciality->id}}" value="{{$speciality->id}}" name="specialities[]" multiple>
+										<label class="form-check-label" for="{{$speciality->id}}">{{$speciality->speciality_ename}}</label>
+										</div>
+							@endforeach
+						</div>
+					</div>
+				
+				</div>
+
 				<div class="row mt-5">
 					<div class="col-md-3 ">
 					<label>Website Link</label>
@@ -147,6 +166,25 @@
 				
 				</div>	
 
+				
+
+				<div class="row mt-5">
+					<div class="col-md-3 ">
+						<label>Specialities </label>
+					</div>
+					<div class="col-md-5">
+						<div class="row">
+							@foreach($specialities as $speciality)
+						              <div class="col-md-6 col-lg-6 col-sm-6">
+						              	<input type="checkbox" class="form-check-input" id="{{$speciality->id}}" value="{{$speciality->id}}" name="edit_specialities[]" multiple>
+										<label class="form-check-label" for="{{$speciality->id}}">{{$speciality->speciality_ename}}</label>
+										</div>
+							@endforeach
+						</div>
+					</div>
+				
+				</div>
+
 				<div class="row mt-5">
 					<div class="col-md-3 ">
 					<label>Website Link</label>
@@ -166,6 +204,10 @@
 				</div>
 				
 				</div>
+
+
+
+
 				<div class="row mt-5">
 				<div class="col-md-3 ">
 					<label>Hospital Image</label>

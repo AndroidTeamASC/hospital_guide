@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Physician extends Model
 {
 	
-    protected $fillable = ['name','degree','date_time','hospital_id','speciality_id'];
+    protected $fillable = ['name','degree','speciality_id'];
     public function hospital($value='')
     {
     	return $this->belongsTo('App\Hospital');

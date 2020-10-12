@@ -18,25 +18,11 @@
 
 				<div class="row mt-5">
 					<div class="col-md-3 ">
-					<label>Day</label>
+					
+					<label>Date & Time</label>
 				</div>
 				<div class="col-md-5">
-					<select name="s_day" class="form-control">
-						<option disabled selected>Select Day </option>
-						@foreach($days as $day)
-							<option value="{{$day}}">{{$day}}</option>
-						@endforeach
-					</select>
-				</div>
-				
-				</div>
-
-				<div class="row mt-5">
-					<div class="col-md-3 ">
-					<label>Time</label>
-				</div>
-				<div class="col-md-5">
-					<input type="time" name="s_time" class="form-control">
+					<textarea class="form-control" name="date_time"></textarea>
 				</div>
 				
 				</div>
@@ -62,7 +48,7 @@
 					</div>
 
 					<div class="col-md-5">
-						<select name="physician"  class="form-control" id="edit_physician">
+						<select name="physician"  class="form-control" >
 							<option selected disabled>Select physician</option>
 							@foreach($physicians as $physician)
 							<option value="{{$physician->id}}">{{$physician->name}}</option>
@@ -76,7 +62,7 @@
  
 				
 				
-				<div class="col-md-3">0
+				<div class="col-md-3">
 					<input type="submit" value="ADD">
 				</div>
 			</form>	
@@ -90,23 +76,14 @@
 				
 				<div class="row mt-5">
 					<div class="col-md-3 ">
-					<label>Day</label>
+					<label>Date & Time</label>
 				</div>
 				<div class="col-md-5">
-					<input type="day" name="s_day" class="form-control" id="edit_day">
+					<textarea class="form-control" name="edit_date_time" id="edit_date_time"></textarea>
 				</div>
 				
 				</div>
 
-				<div class="row mt-5">
-					<div class="col-md-3 ">
-					<label>Time</label>
-				</div>
-				<div class="col-md-5">
-					<input type="time" name="s_time" class="form-control" id="edit_time">
-				</div>
-				
-				</div>
 
 				
 				<div class="row mt-5">
@@ -163,9 +140,8 @@
 		<table class="table table-dark table-sm ">
 			<tr>
 				<th>NO.</th>
-				<th>Day</th>
-				<th>Time</th>
-				<th>schedule</th>
+				<th>Name</th>
+				<th>Day & Time</th>
 				<th>Hospital</th>
 				 
 				<th colspan="2">Action</th>
@@ -174,15 +150,13 @@
 			@foreach($schedules as $schedule)
 			<tr>
 				<td>{{$i++}}</td>
-				<td>{{$schedule->s_day}}</td>
-				<td>{{$schedule->s_time}}</td>			 
-				<td>{{$schedule->hospital->hospital_name}}</td>
 				<td>{{$schedule->physician->name}}</td>
+				<td>{{$schedule->date_time}}</td>	 
+				<td>{{$schedule->hospital->hospital_name}}</td>
 				<td>
 					<a href="#" class="btn btn-secondary  edit_item " 
 					data-id="{{$schedule->id}}" 
-					data-day = "{{$schedule->s_day}}" 
-					data-time="{{$schedule->s_time}}"  
+					data-date_time = "{{$schedule->date_time}}" 
 					data-physician="{{$schedule->physician_id}}"  
 					data-hospital="{{$schedule->hospital_id}}">Edit</a>
 				</td>
@@ -219,15 +193,13 @@
 				$('.edit').show();
 				$('.add').hide();
 				var id 			 = $(this).data('id');
-				var day  		 = $(this).data('day');
-				var time 		 = $(this).data('time');
+				var date_time  		 = $(this).data('date_time');
 				var physician 	 = $(this).data('physician');
 				var hospital 	 = $(this).data('hospital');
 			 
-				console.log(id,name,hospital)
+				console.log(id,name,date_time,hospital,physician)
 				$('#edit_id').val(id);
-				$('#edit_day').val(day);
-				$('#edit_time').val(time);
+				$('#edit_date_time').text(date_time);
 				$('#edit_physician').val(physician);
 				$('#edit_hospital').val(hospital);
 				 

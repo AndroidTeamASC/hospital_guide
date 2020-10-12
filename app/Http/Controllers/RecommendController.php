@@ -46,8 +46,6 @@ class RecommendController extends Controller
             'subject'  => 'required',
             'date' => 'required',
             'person_name'=> 'required',
-            'person_mobile_no' => 'required',
-            'person_email' => 'required',
             'hospital'  => 'required'
         ]);
         

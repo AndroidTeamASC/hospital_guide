@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Hospital;
+use App\Speciality;
+
 class HospitalController extends Controller
 {
     /**
@@ -15,7 +17,8 @@ class HospitalController extends Controller
     public function index()
     {
         $hospitals = Hospital::all();
-        return view('hospital.index',compact('hospitals'));
+        $specialities = Speciality::all();
+        return view('hospital.index',compact('hospitals','specialities'));
     }
 
     /**
@@ -75,6 +78,15 @@ class HospitalController extends Controller
         $hospital->email            = request('email');
         $hospital->facebook_link    = request('facebook_link');
         $hospital->save();
+
+        $specialities = request('specialities');
+
+        foreach ($specialities as $key => $value) {
+            if ($value) {
+                $hospital->specialities()->attach($value);
+            }
+        }
+
 
         return redirect()->route('hospital.index');
     }
@@ -154,6 +166,19 @@ class HospitalController extends Controller
         $hospital->email            = request('edit_email');
         $hospital->facebook_link    = request('edit_facebook_link');
         $hospital->save();
+
+        $specialities = request('edit_specialities');
+
+        if ($specialities != null) {
+            $hospital->specialities()->detach();
+           foreach ($specialities as $key => $value) {
+                if ($value) {
+                    $hospital->specialities()->attach($value);
+                }else {
+                    $hospital->specialities()->detach();  
+                }
+            }
+        }
 
         return redirect()->route('hospital.index');
 

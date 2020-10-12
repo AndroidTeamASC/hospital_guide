@@ -44,8 +44,6 @@ class PackageController extends Controller
             'name'  => 'required',
             'image' => 'required',
             'description' => 'required',
-            'sprice'  => 'required',
-            'rprice'  => 'required',
             'hospital'    => 'required', 
         ]);
          if($request->hasfile('image')){
@@ -107,8 +105,6 @@ class PackageController extends Controller
        $request->validate([
             'edit_name'  => 'required',
             'edit_description' => 'required',
-            'edit_sprice'  => 'required',
-            'edit_rprice'  => 'required',
             'edit_hospital'    => 'required', 
         ]);
          if($request->hasfile('image')){

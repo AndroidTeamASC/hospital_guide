@@ -36,22 +36,6 @@
 				
 				</div>
 
-
-				<div class="row mt-5">
-					<div class="col-md-3 ">
-						<label>Hospital </label>
-					</div>
-					<div class="col-md-5">
-						<select name="hospital" class="form-control">
-							<option selected disabled>Select Hospital</option>
-							@foreach($hospitals as $hospital)
-							<option value="{{$hospital->id}}">{{$hospital->hospital_name}}</option>
-							@endforeach
-						</select>
-					</div>
-				
-				</div>
-
 				
 				<div class="row mt-5">
 					<div class="col-md-3 ">
@@ -99,20 +83,6 @@
 			
 				<div class="row mt-5">
 					<div class="col-md-3 ">
-					<label>Hospital </label>
-				</div>
-				<div class="col-md-5">
-					<select name="edit_hospital" id="edit_hospital" class="form-control">
-						<option selected disabled>Select Hospital</option>
-						@foreach($hospitals as $hospital)
-						<option value="{{$hospital->id}}">{{$hospital->hospital_name}}</option>
-						@endforeach
-					</select>
-				</div>
-				
-				</div>
-				<div class="row mt-5">
-					<div class="col-md-3 ">
 						<label>speciality Image</label>
 					</div>
 					<div class="col-md-5">
@@ -156,7 +126,6 @@
 				<td><img src="{{$speciality->speciality_image}}" width="150" height="150"></td>
 			 
 				<td> 
-				<td>{{$speciality->hospital->hospital_name}}</td>
 				<td>
 					<a href="#" class="btn btn-secondary  edit_item " data-id="{{$speciality->id}}" data-mname = "{{$speciality->speciality_mname}}" 
 					data-image="{{$speciality->speciality_image}}"  
@@ -196,16 +165,12 @@
 				var mname  		 = $(this).data('mname');
 				var image 		 = $(this).data('image');
 				var ename  = $(this).data('ename');
-				 
-				var hospital 	 = $(this).data('hospital');
 			 
-				console.log(id,ename,image,hospital)
 				$('#edit_id').val(id);
 				$('#edit_mname').val(mname);
 				$('#edit_image').attr("src",image);
 				$('#edit_image_old').val(image);
 				$('#edit_ename').val(ename);
-				$('#edit_hospital').val(hospital);
 				 
 			})
 		})

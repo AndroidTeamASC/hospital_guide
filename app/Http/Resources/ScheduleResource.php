@@ -5,6 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Hospital;
 use App\Speciality;
+use App\Physician;
 class ScheduleResource extends JsonResource
 {
     /**
@@ -17,10 +18,9 @@ class ScheduleResource extends JsonResource
     {
         return [
             'id'    => $this->id,
-            'day'   => $this->s_day,
-            'time'  => $this->s_time,
+            'date_time'   => $this->date_time,
             'hospital' => new HospitalResource(Hospital::find($this->hospital_id)),
-            'speciality' => new SpecialityResource(Speciality::find($this->speciality_id))
+            'physician' => new PhysicianResource(Physician::find($this->physician_id))
         ];
     }
 }

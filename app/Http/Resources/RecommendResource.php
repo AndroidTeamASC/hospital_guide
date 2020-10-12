@@ -20,7 +20,7 @@ class RecommendResource extends JsonResource
             'rec_date'      => $this->rec_date,
             'person_name'   => $this->person_name,
             'person_mobile_no' => $this->person_mobile_no,
-            'person_email' => $this->email,   
+            'person_email' => $this->person_email,   
             'hospital'  => new HospitalResource(Hospital::find($this->hospital_id))];
     }
 }
